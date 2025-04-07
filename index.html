@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Interface Non Accessible</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<style>
+		a:focus {
+			outline: 2px solid blue;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Bienvenue sur notre site</h1>
+	<header role="banner">
+		<nav role="navigation" aria-label="Menu principal">
+			<ul>
+				<li><a href="#" title="Aller à la page d'accueil">Accueil</a></li>
+				<li><a href="#" title="Découvrez nos services">Services</a></li>
+				<li><a href="#" title="Nous contacter">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main role="main" aria-label="Contenu principal">
+		<section class="service">
+			<h2>Nos Services</h2>
+			<button id="menuServices-toggle" aria-label="Bouton pour afficher le menu déroulant des services" 
+			class="toggle_menu_services" aria-expanded="false" aria-controls="menuServices">
+				☰ Menu
+			</button>
+			<ul class="menu_services" hidden role="menu" aria-label="Menu des services" aria-expanded="false"
+				id="menuServices">
+				<li><a href="#" title="Découvrez nos services de développement web">Développement web</a></li>
+				<li><a href="#" title="Découvrez nos services SEO">SEO</a></li>
+				<li><a href="#" title="Découvrez nos services de SEA">SEA</a></li>
+				<li><a href="#" title="Découvrez nos services de marketing digital">Marketing Digital</a></li>
+				<li><a href="#" title="Découvrez nos services de Design UX">UX Design</a></li>
+			</ul>
+		</section>
+
+		<section class="service">
+			<h3>Développement Web</h3>
+			<p>Nous créons des sites modernes et sur-mesure.</p>
+			<button>En savoir plus</button>
+		</section>
+
+		<section class="service">
+			<h3>SEO</h3>
+			<p>Optimisation des sites pour Google.</p>
+			<button>En savoir plus</button>
+		</section>
+
+		<img src="http://picsum.photos/800/600?v=1"
+			alt="photo de maysage changeant à chaques fois que la page est chargé" />
+
+		<section class="contact" role="form">
+			<h2>Nous contacter</h2>
+			<form aria-label="Formulaire de contact">
+				<div><input aria-required="true" aria-label="Champ pour le nom" type="text" placeholder="Nom complet" required/></div>
+				<div><input aria-required="true" aria-label="Champ pour l'adresse e-mail" type="email" placeholder="Email" required/></div>
+				<div><textarea aria-required="true" aria-label="Zone de texte pour votre message" placeholder="Votre message" required></textarea></div>
+				<div><button>Envoyer</button></div>
+			</form>
+		</section>
+	</main>
+
+	<footer role="contentinfo">
+		<p aria-label="Information des copyright">© 2025 - Tous droits réservés</p>
+	</footer>
+	<script>
+		// Script pour gérer l'ouverture/fermeture du menu accessible
+		document.getElementById("menuServices-toggle").addEventListener("click", function () {
+			let menu = document.getElementById("menuServices");
+			let expanded = this.getAttribute("aria-expanded") === "true" || false;
+
+			this.setAttribute("aria-expanded", !expanded);
+			menu.hidden = expanded;
+		});
+	</script>
+</body>
+
+</html>

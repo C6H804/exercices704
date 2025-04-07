@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            display:flex;
+            flex-direction: row;
+            justify-content: right;
+        }
+
+        .element {
+            width: 100px;
+            height: 100px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+        #A {
+            background-color: red;
+        }
+        #B {
+            background-color: blue;
+        }
+        #C {
+            background-color: green;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="element" id="A">Item 1</div>
+        <div class="element" id="B">Item 2</div>
+        <div class="element" id="C">Item 3</div>
+    </div>
+</body>
+</html>
